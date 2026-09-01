@@ -1,0 +1,21 @@
+# 换行符策略：防止跨平台协作时脚本被自动转换而失效
+
+# Windows 批处理必须用 CRLF。若为 LF，cmd.exe 会错位截断命令行，
+# 导致 rem 注释失效、goto 标签失效、变量赋值被跳过。
+# 注意 start.bat 同时必须保持 GBK 编码（勿另存为 UTF-8）。
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Shell 脚本必须用 LF。若为 CRLF，Linux/macOS 会报
+# "bad interpreter: /bin/bash^M"。
+*.sh text eol=lf
+
+# 二进制文件：禁止任何换行转换
+*.png binary
+*.PNG binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.docx binary
+*.pkl binary

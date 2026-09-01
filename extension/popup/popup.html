@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>B站明星人脸识别</h1>
+    <div class="status-line">
+      <span id="statusDot" class="dot"></span>
+      <span id="statusText">检测中…</span>
+    </div>
+  </header>
+
+  <section class="row">
+    <label for="toggle" class="switch-label">启用识别</label>
+    <label class="switch">
+      <input type="checkbox" id="toggle" />
+      <span class="slider"></span>
+    </label>
+  </section>
+
+  <section class="row">
+    <label for="threshold">相似度阈值 <b id="thresholdVal">0.60</b></label>
+    <input type="range" id="threshold" min="0.40" max="0.90" step="0.05" />
+    <small>越高越严格（误认少、未知多）；越低越容易匹配</small>
+  </section>
+
+  <section class="row">
+    <label for="interval">识别频率 <b id="intervalVal">300ms</b></label>
+    <input type="range" id="interval" min="100" max="1000" step="50" />
+    <small>越低越流畅，CPU 占用越高</small>
+  </section>
+
+  <section class="row">
+    <label for="showBoxes" class="switch-label">显示人脸框</label>
+    <label class="switch">
+      <input type="checkbox" id="showBoxes" checked />
+      <span class="slider"></span>
+    </label>
+  </section>
+
+  <footer>
+    <button id="refresh">刷新状态</button>
+    <p id="pageStatus"></p>
+  </footer>
+
+  <script src="../content/config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

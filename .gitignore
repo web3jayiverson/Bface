@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# 冒烟测试临时依赖与缓存
+backend/.smoke_deps/
+backend/.tmp/
+backend/.cache/
+backend/.docx_tools/
+docs/.thesis_tmp.md
+docs/*_raw.docx
+
+# 数据（体积大/含人脸，不入库）
+data/faces/
+data/star_features.pkl
+data/*.pkl
+
+# 系统
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# IDE
+.vscode/
+.idea/

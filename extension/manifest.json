@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "B站明星人脸识别",
+  "version": "1.0.0",
+  "description": "在B站视频中自动识别明星人脸并实时显示姓名。所有图像数据仅在本地处理，不上传任何内容。",
+  "minimum_chrome_version": "88",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "B站明星人脸识别",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.bilibili.com/*",
+        "*://bilibili.com/*"
+      ],
+      "js": [
+        "content/config.js",
+        "content/frame-capture.js",
+        "content/overlay.js",
+        "content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
